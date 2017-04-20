@@ -6,25 +6,25 @@ use Composer\Installer\PackageEvent;
 
 class Utility
 {
-    private $collection             = realpath(__DIR__ . '/Collection.php');
-    private $rest_dir               = realpath(__DIR__ . '/Rest');
-    private $rpc_dir                = realpath(__DIR__ . '/Rpc');
-    private $view_dir               = realpath(__DIR__ . '/../view');
-    private $new_apigility_dir      = realpath(__DIR__ . '/../../../../module/Application/src/Apigility');
-    private $apigility_admin_dir    = realpath(__DIR__ . '/../../../zfcampus/zf-apigility-admin');
-
     public static function postUpdate(Event $event)
     {
-        if (!is_dir($this->apgility_dir)) {
-            mkdir($this->apigility_dir, 0755);
+        $collection             = realpath(__DIR__ . '/Collection.php');
+        $rest_dir               = realpath(__DIR__ . '/Rest');
+        $rpc_dir                = realpath(__DIR__ . '/Rpc');
+        $view_dir               = realpath(__DIR__ . '/../view');
+        $new_apigility_dir      = realpath(__DIR__ . '/../../../../module/Application/src/Apigility');
+        $apigility_admin_dir    = realpath(__DIR__ . '/../../../zfcampus/zf-apigility-admin');
 
-            `mv $this->collection $this->new_apigility_dir`;
-            `mv $this->rest_dir $this->new_apigility_dir`;
-            `mv $this->rpc_dir $this->new_apigility_dir`;
-            `mv $this->view $this->new_apigility_dir`;
+        if (!is_dir($apgility_dir)) {
+            mkdir($apigility_dir, 0755);
 
-            `mv $this->apigility_admin_dir/view $this->apigility_admin_dir/view.out`;
-            `ln -s $this->new_apigility_dir/view $this->apigility_admin_dir/view`;
+            `mv $collection $new_apigility_dir`;
+            `mv $rest_dir $new_apigility_dir`;
+            `mv $rpc_dir $new_apigility_dir`;
+            `mv $view $new_apigility_dir`;
+
+            `mv $apigility_admin_dir/view $apigility_admin_dir/view.out`;
+            `ln -s $new_apigility_dir/view $apigility_admin_dir/view`;
         }
     }
 }
