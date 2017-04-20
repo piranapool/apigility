@@ -23,14 +23,15 @@ class Utility
 
         if (!is_dir($new_apigility_dir)) {
             `mkdir $new_apigility_dir`;
-
-            `mv $collection $new_apigility_dir`;
-            `mv $rest_dir $new_apigility_dir`;
-            `mv $rpc_dir $new_apigility_dir`;
-            `mv $view $new_apigility_dir`;
+/*
+            `cp $collection $new_apigility_dir`;
+            `cp -r $rest_dir $new_apigility_dir`;
+            `cp -r $rpc_dir $new_apigility_dir`;
+            `cp -r $view $new_apigility_dir`;
 
             `mv $apigility_admin_view_dir $apigility_admin_view_out_dir`;
             `ln -s $new_apigility_view_dir $apigility_admin_view_dir`;
+*/
         }
     }
 }
