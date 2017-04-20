@@ -19,7 +19,7 @@ class Utility
      * @param string $param1 A string containing the parameter, do this for each parameter to the function, make sure to make it descriptive
      * @return string
      */
-    public function method1($param1)
+    public function method($param)
     {
         return 'Hello World';
     }
