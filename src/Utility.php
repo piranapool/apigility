@@ -15,8 +15,8 @@ class Utility
         $new_apigility_dir      = realpath(__DIR__ . '/../../../../module/Application/src/Apigility');
         $apigility_admin_dir    = realpath(__DIR__ . '/../../../zfcampus/zf-apigility-admin');
 
-        if (!is_dir($apgility_dir)) {
-            mkdir($apigility_dir, 0755);
+        if (!is_dir($new_apigility_dir)) {
+            mkdir($new_apigility_dir, 0755);
 
             `mv $collection $new_apigility_dir`;
             `mv $rest_dir $new_apigility_dir`;
