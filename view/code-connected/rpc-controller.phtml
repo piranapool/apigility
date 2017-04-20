@@ -1,0 +1,12 @@
+namespace <?= $module ?>\V<?= $version ?>\Rpc\<?= $servicename ?>;
+
+use Application\Apigility\Rpc\AbstractActionController;
+use ZF\ApiProblem\ApiProblem;
+use ZF\ApiProblem\ApiProblemResponse;
+
+class <?= $classname ?> extends AbstractActionController
+{
+    public function <?= lcfirst($servicename) ?>Action()
+    {
+    }
+}

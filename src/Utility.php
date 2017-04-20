@@ -1,26 +1,30 @@
 <?php
 namespace PP\Apigility;
 
+use Composer\Script\Event;
+use Composer\Installer\PackageEvent;
+
 class Utility
 {
-    /**
-     * Define here what this variable is for, do this for every instance variable
-     *
-     * @var string $m_SampleProperty
-     */
-    private $m_SampleProperty = '';
+    private $collection             = realpath(__DIR__ . '/Collection.php');
+    private $rest_dir               = realpath(__DIR__ . '/Rest');
+    private $rpc_dir                = realpath(__DIR__ . '/Rpc');
+    private $view_dir               = realpath(__DIR__ . '/../view');
+    private $new_apigility_dir      = realpath(__DIR__ . '/../../../../module/Application/src/Apigility');
+    private $apigility_admin_dir    = realpath(__DIR__ . '/../../../zfcampus/zf-apigility-admin');
 
-    /**
-     * Sample method
-     *
-     * Always create a corresponding docblock for each method, describing what it is for,
-     * this helps the phpdocumentator to properly generator the documentation
-     *
-     * @param string $param1 A string containing the parameter, do this for each parameter to the function, make sure to make it descriptive
-     * @return string
-     */
-    public function func($param)
+    public function postUpdate(Event $event)
     {
-        return 'Hello World';
+        if (!is_dir($this->apgility_dir)) {
+            mkdir($this->apigility_dir, 0755);
+
+            `mv $this->collection $this->new_apigility_dir`;
+            `mv $this->rest_dir $this->new_apigility_dir`;
+            `mv $this->rpc_dir $this->new_apigility_dir`;
+            `mv $this->view $this->new_apigility_dir`;
+
+            `mv $this->apigility_admin_dir/view $this->apigility_admin_dir/view.out`;
+            `ln -s $this->new_apigility_dir/view $this->apigility_admin_dir/view`
+        }
     }
 }
