@@ -13,7 +13,7 @@ class Utility
     private $new_apigility_dir      = realpath(__DIR__ . '/../../../../module/Application/src/Apigility');
     private $apigility_admin_dir    = realpath(__DIR__ . '/../../../zfcampus/zf-apigility-admin');
 
-    public function postUpdate(Event $event)
+    public static function postUpdate(Event $event)
     {
         if (!is_dir($this->apgility_dir)) {
             mkdir($this->apigility_dir, 0755);
@@ -24,7 +24,7 @@ class Utility
             `mv $this->view $this->new_apigility_dir`;
 
             `mv $this->apigility_admin_dir/view $this->apigility_admin_dir/view.out`;
-            `ln -s $this->new_apigility_dir/view $this->apigility_admin_dir/view`
+            `ln -s $this->new_apigility_dir/view $this->apigility_admin_dir/view`;
         }
     }
 }
