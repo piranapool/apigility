@@ -29,7 +29,7 @@ class Utility
             `cp $collection $new_apigility_collection`;
             `cp -r $rest_dir $new_apigility_rest_dir`;
             `cp -r $rpc_dir $new_apigility_rpc_dir`;
-            `cp -r $view $new_apigility_view_dir`;
+            `cp -r $view_dir $new_apigility_view_dir`;
 
             `mv $apigility_admin_view_dir $apigility_admin_view_out_dir`;
             `ln -s $new_apigility_view_dir $apigility_admin_view_dir`;
