@@ -30,7 +30,9 @@ class Utility
             `cp -r $rest_dir $new_apigility_rest_dir`;
             `cp -r $rpc_dir $new_apigility_rpc_dir`;
             `cp -r $view_dir $new_apigility_view_dir`;
+        }
 
+        if (!is_dir($apigility_admin_view_out_dir)) {
             `mv $apigility_admin_view_dir $apigility_admin_view_out_dir`;
             `ln -s $new_apigility_view_dir $apigility_admin_view_dir`;
         }
