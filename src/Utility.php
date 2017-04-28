@@ -1,4 +1,5 @@
 <?php
+
 namespace PP\Apigility;
 
 use Composer\Script\Event;
@@ -16,7 +17,7 @@ class Utility
         $new_apigility_dir              = __DIR__ . '/../../../../module/Application/src/Apigility';
         $new_apigility_collection       = $new_apigility_dir . '/Collection.php';
         $new_apigility_rest_dir         = $new_apigility_dir . '/Rest';
-        $new_apigility_rpc_dir         = $new_apigility_dir . '/Rpc';
+        $new_apigility_rpc_dir          = $new_apigility_dir . '/Rpc';
         $new_apigility_view_dir         = $new_apigility_dir . '/view';
 
         $apigility_admin_dir            = __DIR__ . '/../../../zfcampus/zf-apigility-admin';
