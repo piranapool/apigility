@@ -4,7 +4,6 @@ namespace Application\Apigility\Rpc;
 
 use Zend\Mvc\Controller\AbstractActionController as ZendAbstractActionController;
 use Zend\Mvc\Controller\ControllerManager;
-use Application\Service\CCMT;
 
 class AbstractActionController extends ZendAbstractActionController
 {
