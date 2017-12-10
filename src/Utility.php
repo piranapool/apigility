@@ -7,7 +7,7 @@ use Composer\Installer\PackageEvent;
 
 class Utility
 {
-    public static function postUpdate(Event $event)
+    public static function postInstall(Event $event)
     {
         $collection                     = __DIR__ . '/Collection.php';
         $rest_dir                       = __DIR__ . '/Rest';
@@ -37,5 +37,10 @@ class Utility
             `mv $apigility_admin_view_dir $apigility_admin_view_out_dir`;
             `ln -s $new_apigility_view_dir $apigility_admin_view_dir`;
         }
+    }
+
+    public static function postUpdate(Event $event)
+    {
+        return self::postInstall($event);
     }
 }
